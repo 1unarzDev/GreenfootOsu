@@ -21,10 +21,9 @@ public class Note extends Actor implements Comparable<Note>
     
     public void act()
     {
-        if(alive)
-        {
-            setLocation(getX(), getY() + Config.getSpeed());   
-        }
+        if(alive) setLocation(getX(), getY() + Config.getSpeed());   
+        
+        if(getY() - height / 2 > getWorld().getHeight()) getWorld().removeObject(this);
     }
     
     public void spawn()

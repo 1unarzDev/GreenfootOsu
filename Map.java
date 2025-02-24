@@ -84,7 +84,7 @@ public class Map extends World
         {
             if(noteQueues.get(i).peek().getStart() == currFrame)
             {
-                
+                noteQueues.get(i).peek().spawn();
             }
         }      
     }
