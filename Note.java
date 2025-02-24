@@ -4,13 +4,16 @@ import java.util.PriorityQueue;
 public class Note extends Actor implements Comparable<Note>
 {
     private long start, end;
-    private int row;
+    private int column;
+    private int width, height;
+    private boolean alive = false;
     
     public Note(long start, long end, int column, Map map)
     {
         // for readability
-        int height = (int) (Config.getNoteScale() * (end - start));
-        int width = Config.getStep();
+        this.height = (int) (Config.getNoteScale() * (end - start));
+        this.width = Config.getStep();
+        this.column = column;
         
         GreenfootImage img = new GreenfootImage(width, height);
         img.setColor(Config.getNoteColor());
@@ -18,12 +21,27 @@ public class Note extends Actor implements Comparable<Note>
     
     public void act()
     {
-        setLocation(getX(), getY() + Config.getSpeed());
+        if(alive)
+        {
+            setLocation(getX(), getY() + Config.getSpeed());   
+        }
     }
     
-    public void score()
+    public void spawn()
     {
-        
+        setLocation(-width / 2, Config.getStep() * column + width / 2);
+        alive = true;
+    }
+    
+    // TODO
+    public int score()
+    {
+        return 0;
+    }
+    
+    public long getStart()
+    {
+        return start;
     }
     
     @Override

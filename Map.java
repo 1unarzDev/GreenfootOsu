@@ -15,6 +15,7 @@ public class Map extends World
     private long totalNotes;
     private int speed = Config.getSpeed();
     private ArrayList<PriorityQueue<Note>> noteQueues = new ArrayList<>();
+    private long score = 0;
     
     public Map() throws IOException
     {    
@@ -71,7 +72,7 @@ public class Map extends World
         {
             if(Greenfoot.isKeyDown(keys[i]))
             {
-                noteQueues.get(i).poll().score();
+                score += noteQueues.get(i).poll().score();
             }
         }
     }
@@ -79,7 +80,13 @@ public class Map extends World
     // spawns in the notes as the appropriate frame arrives, this system is easier than ms since you don't need to use dt
     public void spawnNotes()
     {
-        
+        for(int i = 0; i < noteQueues.size(); i++)
+        {
+            if(noteQueues.get(i).peek().getStart() == currFrame)
+            {
+                
+            }
+        }      
     }
     
     // converts the ms input from the file to the appropriate frame for the note to be displayed
