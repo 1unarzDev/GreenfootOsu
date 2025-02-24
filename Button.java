@@ -22,7 +22,6 @@ public class Button extends Actor
         this.targetWorld = targetWorld;
         this.width = width;
         this.height = height;
-        this.pressType = pressType;
         this.button = button;
         this.baseColor = baseColor;
         this.hoverColor = baseColor;
@@ -71,12 +70,6 @@ public class Button extends Actor
         switch (type) {
             case "EXIT":
                 Greenfoot.stop();
-                break;
-            case "START":
-                Greenfoot.setWorld(targetWorld);
-                break;
-            case "CREDIT":
-                Greenfoot.setWorld(targetWorld);
                 break;
             default:
                 System.out.println("Type is unknown");

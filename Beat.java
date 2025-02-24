@@ -27,11 +27,9 @@ public class Beat extends GameObject
     public void act()
         {
         setLocation(getX(), getY() + speed);
-        if (getY() > getWorld().getHeight()) {
-            getWorld().removeObject(this);
-            }   
         if(isAtEdge()){
             getWorld().removeObject(this);
         }
-        }   
+    }
+    
 }

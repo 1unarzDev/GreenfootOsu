@@ -7,6 +7,7 @@ public class Map extends World
     private long lastTime; // Last time a note was spawned
     private long startTime;
     private Track[] tracks;
+    private Hitbox[] hitboxes;
     private GreenfootSound music;
     public Map()
     {    
@@ -19,16 +20,19 @@ public class Map extends World
         lastTime = System.currentTimeMillis();
         playMusic();
         tracks = new Track[4];
+        hitboxes = new Hitbox[4];
         for (int i = 0; i < tracks.length; i++) {
             tracks[i] = new Track(i);
             addObject(tracks[i], 100 + i * 100, getHeight() / 2);
         }
-        //Beat beat = new Beat(0, 10, new Color(255, 0, 0));
-        //super.addObject(beat, 100, 100);
+        for (int i = 0; i < hitboxes.length; i++) {
+            hitboxes[i] = new Hitbox(i);
+            addObject(hitboxes[i], 100 + i * 100, getHeight() - 50 );
+        }
     }
     private void playMusic() {
-        //music = new GreenfootSound("song.mp3"); // Replace with your music file
-        //music.play();
+        music = new GreenfootSound("PUK.mp3");
+        music.play();
     }
 
     public void act() {
