@@ -13,7 +13,6 @@ public class Map extends World
         super(1200, 800, 1);
         GreenfootImage bg = new GreenfootImage("king.png");
         bg.scale(super.getWidth(), super.getHeight() );
-        bg.setTransparency(100);
         this.setBackground(bg);
         startTime = System.currentTimeMillis();
         interval = 60000 / bpm;
@@ -42,6 +41,6 @@ public class Map extends World
 
     private void spawnNote() {
         int track = Greenfoot.getRandomNumber(4); // Randomly select one of the 4 tracks
-        addObject(new Beat(), 100+track, 0);
+        addObject(new Beat(), 100 + track * 100, 0);
     }
 }

@@ -28,7 +28,10 @@ public class Beat extends GameObject
         {
         setLocation(getX(), getY() + speed);
         if (getY() > getWorld().getHeight()) {
-            getWorld().removeObject(this); // Remove note if it goes off the screen
+            getWorld().removeObject(this);
             }   
+        if(isAtEdge()){
+            getWorld().removeObject(this);
+        }
         }   
 }
