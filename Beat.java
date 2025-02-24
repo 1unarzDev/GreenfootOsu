@@ -1,19 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-/*
-import java.awt.image.BufferedImage;
-import java.awt.Color;
-import java.awt.Image;
-import java.io.IOException;
-import java.io.File;
-import javax.imageio.ImageIO;
-*/
 
-public class HitCircle extends GameObject
+public class Beat extends GameObject
 {
     private int group, time;
     
-    public HitCircle(int group, int time, Color color){
+    public Beat(int group, int time, Color color){
         this.group = group;
         this.time = time;
         

@@ -1,6 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
-public class Slider extends GameObject
+public class Score extends GameObject
 {
     public void act()
     {
