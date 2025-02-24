@@ -9,6 +9,8 @@ public class Map extends World
     private Track[] tracks;
     private Hitbox[] hitboxes;
     private GreenfootSound music;
+    //private Score scoreHolder;
+    //private Score score;
     public Map()
     {    
         super(1200, 800, 1);
@@ -29,6 +31,7 @@ public class Map extends World
             hitboxes[i] = new Hitbox(i);
             addObject(hitboxes[i], 100 + i * 100, getHeight() - 50 );
         }
+        //addObject(new Score(), getWidth() - 130, 50);
     }
     private void playMusic() {
         music = new GreenfootSound("PUK.mp3");
@@ -47,4 +50,9 @@ public class Map extends World
         int track = Greenfoot.getRandomNumber(4); // Randomly select one of the 4 tracks
         addObject(new Beat(), 100 + track * 100, 0);
     }
+    /*
+    public Score getScore() {
+        return score;
+    }
+    */
 }

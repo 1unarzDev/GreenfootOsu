@@ -4,6 +4,7 @@ public class Beat extends GameObject
 {
     //private int group, time;
     private int speed = Config.getBeatSpeed();
+    private GreenfootSound music;
     public Beat(){
         //this.group = group;
         //this.time = time;
@@ -29,7 +30,7 @@ public class Beat extends GameObject
         setLocation(getX(), getY() + speed);
         if(isAtEdge()){
             getWorld().removeObject(this);
+            music = new GreenfootSound("21_wood1.wav");
         }
     }
-    
 }

@@ -81,4 +81,13 @@ public class Hitbox extends GameObject
         else
             return false;
     }
+    /*
+    private void addScore(int a){
+        Map world = (Map) getWorld();
+        Score score = world.getScore();
+        if (score != null) {
+                score.incrementScore(a);
+            }
+    }
+    */
 }
