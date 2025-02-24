@@ -1,13 +1,12 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import greenfoot.*; 
 
 public class Beat extends GameObject
 {
-    private int group, time;
-    
-    public Beat(int group, int time, Color color){
-        this.group = group;
-        this.time = time;
+    //private int group, time;
+    private int speed = 10;
+    public Beat(){
+        //this.group = group;
+        //this.time = time;
         
         GreenfootImage img = new GreenfootImage("beat.png");
         img.scale(Config.getBeatSize(), Config.getBeatSize());
@@ -26,7 +25,10 @@ public class Beat extends GameObject
     */
     
     public void act()
-    {
-        
-    }
+        {
+        setLocation(getX(), getY() + speed);
+        if (getY() > getWorld().getHeight()) {
+            getWorld().removeObject(this); // Remove note if it goes off the screen
+            }   
+        }   
 }
