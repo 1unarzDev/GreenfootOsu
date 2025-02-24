@@ -1,9 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.io.IOException;
 
-public class Outline extends GameObject
+// TODO
+public class Bryan extends Map
 {
-
-    public void act()
+    public Bryan() throws IOException
     {
         
     }
