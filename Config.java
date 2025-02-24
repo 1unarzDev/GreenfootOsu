@@ -1,9 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Config {
-    private static final int HEIGHT = 720;
-    private static final int WIDTH = 1280;
-    private static final int BEAT_SIZE = 100;
+    private static final int HEIGHT = 800;
+    private static final int WIDTH = 1200;
+    private static final int BEAT_SIZE = 75;
+    private static final int BEAT_SPEED = 15;
     
     public static int getHeight(){
         return HEIGHT;
@@ -16,4 +17,8 @@ public class Config {
     public static int getBeatSize(){
         return BEAT_SIZE;
     }
+    public static int getBeatSpeed(){
+        return BEAT_SPEED;
+    }
 }
+

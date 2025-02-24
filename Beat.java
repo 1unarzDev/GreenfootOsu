@@ -3,7 +3,7 @@ import greenfoot.*;
 public class Beat extends GameObject
 {
     //private int group, time;
-    private int speed = 10;
+    private int speed = Config.getBeatSpeed();
     public Beat(){
         //this.group = group;
         //this.time = time;
