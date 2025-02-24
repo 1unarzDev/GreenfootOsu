@@ -10,6 +10,7 @@ public class Button extends Actor
     private String font = "Aller Bold";
     private int fontSize = 18;
     
+    // Creates a button with a label printed on it with a Type
     public Button(String label, String type) {
         this.label = label;
         this.type = type;
@@ -18,6 +19,7 @@ public class Button extends Actor
         updateColor(baseColor);
     }
     
+    // Checks if the button is being hovered or clicked
     public void act() {
         if (Greenfoot.mouseMoved(this)) {
             updateColor(hoverColor);
@@ -29,6 +31,7 @@ public class Button extends Actor
         }
     }
     
+    //Updates the color and Font when called
     private void updateColor(Color color) {
         image = new GreenfootImage(150, 50);
         image.setColor(color);
@@ -45,6 +48,7 @@ public class Button extends Actor
         setImage(image);
     }
     
+    //Checks the type of the button and performs actions accordingly
     public void performAction() {
         System.out.println("Button " + label + " of type " + type + " was clicked");
         switch (type) {
