@@ -6,58 +6,71 @@ public class Hitbox extends GameObject
     private GreenfootSound music;
     private long lastPressTime = System.currentTimeMillis();
     private int cooldownTime = Config.getCooldown();
-    public Hitbox(int hitboxNumber) {
+    private Score score;
+    
+    public Hitbox(int hitboxNumber, Score score)
+    {
         this.hitboxNumber = hitboxNumber;
+        this.score = score;
         GreenfootImage image = new GreenfootImage(50, 50);
         image.setColor(Color.BLACK);
         image.fillRect(0, 0, 50, 50);
         setImage(image);
     }
 
-    public int getHitBoxNumber() {
+    public int getHitBoxNumber() 
+    {
         return hitboxNumber;
     }
-    public void act(){
-        if(cooldown()){
-            switch (hitboxNumber){
+    
+    public void act()
+    {
+        if(cooldown())
+        {
+            switch (hitboxNumber)
+            {
                 case 0:
                     if(Greenfoot.isKeyDown("f"))
-                        if(isTouching(Beat.class)){
+                        if(isTouching(Beat.class))
+                        {
                             deleteBeat();
                         }
-                        else{
-                            music = new GreenfootSound("21_wood1.wav");
-                            music.play();
+                        else
+                        {
+                            missed();
                         }
                     break;
                 case 1:
                     if(Greenfoot.isKeyDown("g"))
-                        if(isTouching(Beat.class)){
+                        if(isTouching(Beat.class))
+                        {
                             deleteBeat();
                         }
-                        else{
-                            music = new GreenfootSound("21_wood1.wav");
-                            music.play();
+                        else
+                        {
+                           missed();
                         }
                     break;
                 case 2:
                     if(Greenfoot.isKeyDown("h"))
-                        if(isTouching(Beat.class)){
+                        if(isTouching(Beat.class))
+                        {
                             deleteBeat();
                         }
-                        else{
-                            music = new GreenfootSound("21_wood1.wav");
-                            music.play();
+                        else
+                        {
+                            missed();
                         }
                     break;
                 case 3:
                     if(Greenfoot.isKeyDown("j"))
-                        if(isTouching(Beat.class)){
+                        if(isTouching(Beat.class))
+                        {
                             deleteBeat();
                         }
-                        else{
-                            music = new GreenfootSound("21_wood1.wav");
-                            music.play();
+                        else
+                        {
+                            missed();
                         }
                     break;
                 default:
@@ -66,28 +79,37 @@ public class Hitbox extends GameObject
             }
         }
     }
-    private void deleteBeat() {
+    
+    private void missed()
+    {
+        score.incrementScore(-Config.getPerfectScore());
+        music = new GreenfootSound("21_wood1.wav");
+        music.play();
+    }
+    
+    private void deleteBeat() 
+    {
         Beat beat = (Beat) getOneIntersectingObject(Beat.class);
-        if (beat != null) {
+        if (beat != null) 
+        {
+            score.incrementScore(calcScore(beat, Config.getPerfectScore()));
             getWorld().removeObject(beat);
         }
     }
-    private boolean cooldown(){
-        if (System.currentTimeMillis() - lastPressTime >= cooldownTime)
-            {
+    
+    private boolean cooldown()
+    {
+        if (System.currentTimeMillis() - lastPressTime >= cooldownTime) 
+        {
             lastPressTime = System.currentTimeMillis();
             return true;
-            }
-        else
-            return false;
+        }
+        return false;
     }
-    /*
-    private void addScore(int a){
-        Map world = (Map) getWorld();
-        Score score = world.getScore();
-        if (score != null) {
-                score.incrementScore(a);
-            }
+    
+    private int calcScore(Beat beat, int perfectScore)
+    {
+        int dist = Math.abs(this.getY() - beat.getY()) / 10;
+        return (dist == 0 ? perfectScore : (perfectScore / dist));
     }
-    */
 }

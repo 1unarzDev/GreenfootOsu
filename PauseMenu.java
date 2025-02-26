@@ -4,6 +4,6 @@ public class PauseMenu extends World
 {
     public PauseMenu()
     {    
-        super(600, 400, 1); 
+        super(Config.getWidth(), Config.getHeight(), 1); 
     }
 }

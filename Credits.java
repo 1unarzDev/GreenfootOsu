@@ -4,7 +4,7 @@ public class Credits extends World
 {
     public Credits()
     {
-        super(1200, 800, 1); 
+        super(Config.getWidth(), Config.getHeight(), 1); 
         GreenfootImage bg = new GreenfootImage("credits.png");
         bg.scale(super.getWidth(), super.getHeight() );
         this.setBackground(bg);

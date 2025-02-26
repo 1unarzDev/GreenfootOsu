@@ -5,16 +5,16 @@ public class MainMenu extends World
     public MainMenu()
     {          
         super(1200, 800, 1); 
-        GreenfootImage background = new GreenfootImage(getWidth(), getHeight());
+        GreenfootImage background = new GreenfootImage(Config.getWidth(), Config.getHeight());
         background.setColor(Color.WHITE);
-        background.fillRect(0, 0, getWidth(), getHeight());
+        background.fillRect(0, 0, Config.getWidth(), Config.getHeight());
         setBackground(background);
         prepare();
     }
     private void prepare()
     {
         GreenfootImage bg = new GreenfootImage("TemuTapper.png");
-        bg.scale(super.getWidth(), super.getHeight() );
+        bg.scale(Config.getWidth(), Config.getHeight());
         this.setBackground(bg);
     }
     public void act(){

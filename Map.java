@@ -9,13 +9,13 @@ public class Map extends World
     private Track[] tracks;
     private Hitbox[] hitboxes;
     private GreenfootSound music;
-    //private Score scoreHolder;
-    //private Score score;
+    private Score score = new Score();
+    
     public Map()
     {    
-        super(1200, 800, 1);
+        super(Config.getWidth(), Config.getHeight(), 1);
         GreenfootImage bg = new GreenfootImage("king.png");
-        bg.scale(super.getWidth(), super.getHeight() );
+        bg.scale(Config.getWidth(), Config.getHeight() );
         this.setBackground(bg);
         startTime = System.currentTimeMillis();
         interval = 60000 / bpm;
@@ -23,16 +23,20 @@ public class Map extends World
         playMusic();
         tracks = new Track[4];
         hitboxes = new Hitbox[4];
+        
         for (int i = 0; i < tracks.length; i++) {
             tracks[i] = new Track(i);
             addObject(tracks[i], 100 + i * 100, getHeight() / 2);
         }
+        
         for (int i = 0; i < hitboxes.length; i++) {
-            hitboxes[i] = new Hitbox(i);
+            hitboxes[i] = new Hitbox(i, score);
             addObject(hitboxes[i], 100 + i * 100, getHeight() - 50 );
         }
-        //addObject(new Score(), getWidth() - 130, 50);
+        
+        addObject(score, getWidth() - 130, 70);
     }
+    
     private void playMusic() {
         music = new GreenfootSound("PUK.mp3");
         music.play();
@@ -50,9 +54,4 @@ public class Map extends World
         int track = Greenfoot.getRandomNumber(4); // Randomly select one of the 4 tracks
         addObject(new Beat(), 100 + track * 100, 0);
     }
-    /*
-    public Score getScore() {
-        return score;
-    }
-    */
 }
